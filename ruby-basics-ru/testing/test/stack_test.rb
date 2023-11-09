@@ -33,6 +33,26 @@ class StackTest < Minitest::Test
     assert(stack.size == 3)
     assert(stack.empty? == false)
   end
+
+  def test_deletting_elements
+    stack = Stack.new
+    stack.push! 'ruby'
+    stack.push! 'php'
+    stack.push! 'java'
+    stack.pop!
+    assert(stack.to_a == ['ruby', 'php'])
+    assert(stack.size == 2)
+  end
+
+  def test_clearing_stack
+    stack = Stack.new
+    stack.push! 'ruby'
+    stack.push! 'php'
+    stack.push! 'java'
+    stack.clear!
+    assert(stack.to_a == [])
+    assert(stack.empty? == true)
+  end
   # END
 end
 
