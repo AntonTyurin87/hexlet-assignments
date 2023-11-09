@@ -19,9 +19,9 @@ class StackTest < Minitest::Test
     assert(stack.empty? == true)
   end
 
-  def test_size_returns_zirro
+  def test_size_returns_ziro
     stack = Stack.new
-    assert(stack.size == 0)
+    assert(stack.size.zero?)
   end
 
   def test_adding_elements
@@ -29,7 +29,7 @@ class StackTest < Minitest::Test
     stack.push! 'ruby'
     stack.push! 'php'
     stack.push! 'java'
-    assert(stack.to_a == ['ruby', 'php', 'java'])
+    assert(stack.to_a == %w[ruby php java])
     assert(stack.size == 3)
     assert(stack.empty? == false)
   end
@@ -40,7 +40,7 @@ class StackTest < Minitest::Test
     stack.push! 'php'
     stack.push! 'java'
     stack.pop!
-    assert(stack.to_a == ['ruby', 'php'])
+    assert(stack.to_a == %w[ruby php])
     assert(stack.size == 2)
   end
 
