@@ -36,7 +36,7 @@ class Url
   def == (other)
     n = (other.query || '').split('&').each_with_object({}) do |item, acc|
       acc[item.split('=')[0].to_sym] = item.split('=')[1] end
-    @ary == n  #URI.decode_www_form(other.query).sort 
+    @ary == n and  @url.port ==  other.port #URI.decode_www_form(other.query).sort 
   end
 end
 # END
